@@ -8,17 +8,18 @@ class Player
 
     constructor()
     {
-        this.#xCentro = 0;
-        this.#yCentro = 0;
-        this.#radio = 15;
+        this.#xCentro = 300;
+        this.#yCentro = 540;
+        this.#radio = 50;
         this.#numVidas = 4;
     }
 
     dibujar(ctx)
     {
         ctx.beginPath();
-        ctx.arc(this.#xCentro,this.#yCentro,this.#radio,0, 2.0 * Math.PI);
+        ctx.arc(this.#xCentro, this.#yCentro, this.#radio, 0, 2.0 * Math.PI);
         //ctx.fillStyle = this.#colorRelleno;
+        ctx.fillStyle = "red";
         ctx.fill();
         //ctx.strokeStyle = this.#colorContorno;
         ctx.stroke();
