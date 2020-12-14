@@ -5,20 +5,21 @@ class Escenario
 
     constructor()
     {
-        this.#back =    [ 'url1',
-                         'url2',
-                         'url3',
-                         'url4',
-                         'url5',
-                         'url6',
-                         'final'           
+        this.#back =    [ './imgs/scene1.png',
+                         './imgs/scene2.png',
+                         './imgs/scene3.png',
+                         './imgs/scene4.png',         
                         ];
     }
 
-    changeScene(srcActual, canvas)
+    changeScene(canvas)
     {
-        let sceneIndex = this.#back.findIndex( scene => srcActual == scene );
-        sceneIndex += 1;
-        canvas.style.background = this.#back[sceneIndex];
+
+        console.log(canvas.style.backgroundImage);
+
+        // let sceneIndex = this.#back.findIndex( scene => canvas.style.backgroundImage == scene );
+        // console.log(sceneIndex);
+        // sceneIndex += 1;
+        // canvas.style.backgroundImage = "url('" + this.#back[sceneIndex] + "')";  
     }
 }

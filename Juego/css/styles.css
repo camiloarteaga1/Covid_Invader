@@ -34,6 +34,9 @@ body{
 
 canvas{
     background-color: blanchedalmond;
+    background-image: url('../imgs/scene1.png');
+    background-size: cover; 
+    background-position: center; 
 }
 
 button{
@@ -41,7 +44,7 @@ button{
     border: 0px;
 }
 
-
 .button-game{
     width: 60%;
 }
+
