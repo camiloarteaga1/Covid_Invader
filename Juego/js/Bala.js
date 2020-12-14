@@ -6,9 +6,9 @@ class Bullet
     #yCentro;
     #radio;
 
-    constructor(xInicial, yInicial) // xInicial y yInicial corresponden a la pocicion del jugador en el momento del disparo
+    constructor(xInicial, yInicial) // xInicial y yInicial corresponden a la posicion del jugador en el momento del disparo
     {
-        this.#radio = 30;
+        this.#radio = 20;
         this.#xCentro = xInicial;
         this.#yCentro = yInicial;
         this.#image = 'url';
@@ -20,11 +20,19 @@ class Bullet
         ctx.beginPath();
         ctx.arc(this.#xCentro,this.#yCentro,this.#radio,0, 2.0 * Math.PI);
         //ctx.fillStyle = this.#colorRelleno;
+        ctx.fillStyle = "black";
         ctx.fill();
         //ctx.strokeStyle = this.#colorContorno;
         ctx.stroke();
         ctx.closePath();
     }
+
+    clear(ctx, w, h)
+    {
+        ctx.arc(this.#xCentro,this.#yCentro,this.#radio,0, 2.0 * Math.PI);
+        // ctx.clip();
+        ctx.clearRect(0, 0, w, h);
+    } 
 
     colisionarCon( enemigo )
     {

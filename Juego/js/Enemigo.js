@@ -13,6 +13,7 @@ class Enemigo
         this.#imagen = imagen;
         this.#xCentro = xCentro;
         this.#yCentro = yCentro;
+        this.#radio = 50;
 
         if (this.#type == 1)
         {
@@ -29,6 +30,7 @@ class Enemigo
         ctx.beginPath();
         ctx.arc(this.#xCentro,this.#yCentro,this.#radio,0, 2.0 * Math.PI);
         //ctx.fillStyle = this.#colorRelleno;
+        ctx.fillStyle = 'green';
         ctx.fill();
         //ctx.strokeStyle = this.#colorContorno;
         ctx.stroke();
