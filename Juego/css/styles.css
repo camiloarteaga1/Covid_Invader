@@ -13,10 +13,12 @@ body{
     padding: 2% 0rem ;
 }
 
-/* #gui{
-  
-    
-} */
+#start{
+    width: 600px;
+    height: 600px;
+    position: absolute;
+    display: block;
+}
 
 #gui > div.row  > figure  {
    height: 15rem;
@@ -34,7 +36,7 @@ body{
 
 canvas{
     background-color: rgb(247, 152, 9);
-    /* background-image: url('../imgs/scene1.png'); */
+    /* background-image: url('../imgs/scene1.png');  */
     background-size: cover; 
     background-position: center; 
 }

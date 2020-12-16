@@ -1,25 +1,26 @@
 class Escenario
 {
     #back;
-    #type;
+    #type = 0;
 
-    constructor()
+    constructor(canvas)
     {
-        this.#back =    [ './imgs/scene1.png',
-                         './imgs/scene2.png',
-                         './imgs/scene3.png',
-                         './imgs/scene4.png',         
+        this.#back =    [ 'imgs/scene1.png',
+                         'imgs/scene2.png',
+                         'imgs/scene3.png',
+                         'imgs/scene4.png',         
                         ];
+    
+
+        canvas.style.backgroundImage = "url('" + this.#back[this.#type] + "')";
+
     }
 
     changeScene(canvas)
     {
-
-        console.log(canvas.style.backgroundImage);
-
-        // let sceneIndex = this.#back.findIndex( scene => canvas.style.backgroundImage == scene );
-        // console.log(sceneIndex);
-        // sceneIndex += 1;
-        // canvas.style.backgroundImage = "url('" + this.#back[sceneIndex] + "')";  
+        this.#type += 1;
+        canvas.style.backgroundImage = "url('" + this.#back[this.#type] + "')";  
     }
+
+  
 }

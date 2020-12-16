@@ -1,4 +1,12 @@
-window.addEventListener("load", main)
+window.addEventListener("load", main);
+
+let miEstado = false; // Var que controla el inicio del juego. 
+
+function start() // Func que da incio al juego.
+{
+    document.getElementById("start").style.display =  "none";
+    miEstado = true;    
+}
 
 function main()
 {
@@ -15,7 +23,7 @@ function main()
     let enemies = new Array();
     let balas = new Array();
     let player = new Player();
-    let escenario = new Escenario();
+    let escenario = new Escenario(miCanvas);
     player.dibujar(ctx);
     player.line(ctx);
     enemies[0] = new Enemigo(1, undefined, 50, 120);
@@ -39,9 +47,8 @@ function main()
     
     function scene( )
     {
-       console.log(miCanvas.style.backgroundImage);
-       
-        if (score%100 == 0 && level <= 4) {
+      
+        if (score%100 == 0 && level <= 4 && score != 0) {
             escenario.changeScene(miCanvas);
             level += 1
         }
@@ -106,4 +113,7 @@ function main()
         numeroEsperado = Math.floor((numeroGenerado * (max - min) + min));
         return numeroEsperado;
     }
+
+
 }
+
