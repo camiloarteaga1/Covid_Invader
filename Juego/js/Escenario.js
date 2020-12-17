@@ -7,8 +7,7 @@ class Escenario
     {
         this.#back =    [ 'imgs/scene1.png',
                          'imgs/scene2.png',
-                         'imgs/scene3.png',
-                         'imgs/scene4.png',         
+                         'imgs/scene3.png'         
                         ];
     
 

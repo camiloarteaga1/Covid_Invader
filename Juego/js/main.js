@@ -8,6 +8,10 @@ function start() // Func que da incio al juego.
     miEstado = true;    
 }
 
+function skins() {
+    alert("Función en proceso");
+}
+
 function main()
 {
     //Elements
