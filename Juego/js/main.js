@@ -25,19 +25,22 @@ function  juego()
     let w = miCanvas.clientWidth;
     let h = miCanvas.clientHeight;
 
+      //Sprite Player
+      let sprite = new Image();
+      sprite.src = "imgs/Jeringa.png";
+
     //Objects
+    
     let enemies = new Array();
     let balas = new Array();
     let player = new Player();
     let escenario = new Escenario(miCanvas);
-    player.dibujar(ctx);
+    player.dibujar(ctx, sprite);
     player.line(ctx);
     // enemies[0] = new Enemigo(1, undefined, 50, 60);
     // enemies[0].dibujar(ctx);
 
-    //Sprite Player
-    let sprite = new Image();
-    sprite.src = "imgs/Jeringa.png";
+  
 
     //Data 
     let level = 0;
@@ -56,11 +59,11 @@ function  juego()
     function generarEnemigos()
     {
         let random = generarRandom(60, 540);
-
-       
+        let tipo = generarRandom(1, 3);
+       console.log(tipo);
         if(score < 800 && player.vidas >= 1)
         {
-            enemies.push(new Enemigo(1, undefined, random, 60));
+            enemies.push(new Enemigo(tipo, undefined, random, 60));
             enemies[enemies.length-1].dibujar(ctx);
         }
 

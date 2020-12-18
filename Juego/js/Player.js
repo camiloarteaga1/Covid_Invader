@@ -12,6 +12,8 @@ class Player
         this.#yCentro = 540;
         this.#radio = 40;
         this.#numVidas = 4;
+        this.#imagen = new Image();
+        this.#imagen.src = "imgs/Jeringa.png";
     }
 
     // dibujar(ctx)
@@ -68,11 +70,13 @@ class Player
 
     dibujar(ctx)
     {
+        
         ctx.beginPath();
         ctx.arc(this.#xCentro, this.#yCentro, this.#radio, 0, 2.0 * Math.PI);
+        ctx.drawImage(this.#imagen,0,0,300,300,this.#xCentro-33, this.#yCentro-40,80,80);
         // ctx.fillStyle = this.#colorRelleno;
-        ctx.fillStyle = "red";
-        ctx.fill();
+        // ctx.fillStyle = "red";
+        // ctx.fill();
         //ctx.strokeStyle = this.#colorContorno;
         ctx.stroke();
         ctx.closePath();
