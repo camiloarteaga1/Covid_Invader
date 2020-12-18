@@ -34,7 +34,7 @@ class Enemigo
     {
         ctx.beginPath();
         ctx.arc(this.#xCentro,this.#yCentro,this.#radio,0, 2.0 * Math.PI);
-        ctx.drawImage( this.#imagen,0,0,300,030,this.#xCentro-30, this.#yCentro-30, 60,60);
+        ctx.drawImage(this.#imagen,0,0,300,300,this.#xCentro-30, this.#yCentro-30, 60,60);
         //ctx.fillStyle = this.#colorRelleno;
        
         //ctx.strokeStyle = this.#colorContorno;

@@ -5,6 +5,7 @@ let miEstado = false; // Var que controla el inicio del juego.
 function main() // Func que da incio al juego.
 {
     document.getElementById("start").style.display =  "none";
+    document.getElementById("btnS").style.display = "none";
     miEstado = true;  
     juego();  
 }
@@ -78,7 +79,8 @@ function  juego()
       
         if (score%200 == 0 && level <= 4 && score != 0) {
             escenario.changeScene(miCanvas, score);
-            level += 1
+            level += 1;
+            score += 50;
         }
 
         console.log(score);
@@ -109,7 +111,10 @@ function  juego()
                 {
                    enemies = [ ]; 
                    ctx.clearRect(0, 485, w, 115);
+                   document.getElementById("start").src = "imgs/Game_Over.png";
+                   document.getElementById("start").style.display = "block";
                 }
+
                 //console.log(enemies);
             }
             miVida.value = player.vidas;
