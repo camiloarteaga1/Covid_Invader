@@ -13,15 +13,16 @@ class Enemigo
         this.#imagen = imagen;
         this.#xCentro = xCentro;
         this.#yCentro = yCentro;
-        this.#radio = 50;
 
         if (this.#type == 1)
         {
             this.#vida = 1;
+            this.#radio = 30;
         }
         if (this.#type == 2)
         {
             this.#vida = 20;
+            this.#radio = 60;
         }
     }
 
@@ -67,19 +68,24 @@ class Enemigo
         return this.#vida;
     }
 
+    get tipo()
+    {
+        return this.#type;
+    }
+
     moverIzquierda ()
     {
-        this.#xCentro += - 10;
+        this.#xCentro += - 5;
     }
 
     moverDerecha ()
     {
-        this.#xCentro += 10;
+        this.#xCentro += 5;
     }
 
     moverAbajo ()
     {
-        this.#yCentro += 10;
+        this.#yCentro += 3;
     }
 
     get radio ()

@@ -10,7 +10,7 @@ class Player
     {
         this.#xCentro = 300;
         this.#yCentro = 540;
-        this.#radio = 50;
+        this.#radio = 40;
         this.#numVidas = 4;
     }
 

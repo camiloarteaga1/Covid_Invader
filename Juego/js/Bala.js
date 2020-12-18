@@ -27,12 +27,12 @@ class Bullet
         ctx.closePath();
     }
 
-    clear(ctx, w, h)
-    {
-        ctx.arc(this.#xCentro,this.#yCentro,this.#radio,0, 2.0 * Math.PI);
-        // ctx.clip();
-        ctx.clearRect(0, 0, w, h);
-    } 
+    // clear(ctx, w, h)
+    // {
+    //     ctx.arc(this.#xCentro,this.#yCentro,this.#radio,0, 2.0 * Math.PI);
+    //     // ctx.clip();
+    //     ctx.clearRect(0, 0, w, h);
+    // } 
 
     colisionarCon( enemigo )
     {

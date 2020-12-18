@@ -15,11 +15,16 @@ class Escenario
 
     }
 
-    changeScene(canvas)
+    changeScene(canvas, score)
     {
+        if (score >= 400)
+        {
+            canvas.style.backgroundImage = "url('" + this.#back[2] + "')";
+        }
+        else
+        {
         this.#type += 1;
-        canvas.style.backgroundImage = "url('" + this.#back[this.#type] + "')";  
+        canvas.style.backgroundImage = "url('" + this.#back[this.#type] + "')";
+        }
     }
-
-  
 }

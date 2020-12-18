@@ -1,18 +1,19 @@
-window.addEventListener("load", main);
+//window.addEventListener("load", main);
 
 let miEstado = false; // Var que controla el inicio del juego. 
 
-function start() // Func que da incio al juego.
+function main() // Func que da incio al juego.
 {
     document.getElementById("start").style.display =  "none";
-    miEstado = true;    
+    miEstado = true;  
+    juego();  
 }
 
 function skins() {
     alert("Función en proceso");
 }
 
-function main()
+function  juego()
 {
     //Elements
     let miCanvas = document.getElementById("miCanvas");
@@ -30,8 +31,8 @@ function main()
     let escenario = new Escenario(miCanvas);
     player.dibujar(ctx);
     player.line(ctx);
-    enemies[0] = new Enemigo(1, undefined, 50, 120);
-    enemies[0].dibujar(ctx);
+    // enemies[0] = new Enemigo(1, undefined, 50, 60);
+    // enemies[0].dibujar(ctx);
 
     //Sprite Player
     let sprite = new Image();
@@ -48,16 +49,32 @@ function main()
     //Animations
     window.requestAnimationFrame(scene);
     window.requestAnimationFrame(moverBala);
+    window.requestAnimationFrame(generarEnemigos);
+
+    function generarEnemigos()
+    {
+        let random = generarRandom(60, 540);
+
+        if(score < 1400)
+        {
+            enemies.push(new Enemigo(1, undefined, random, 60));
+            enemies[enemies.length-1].dibujar(ctx);
+        }
+
+        setTimeout(function() {
+            window.requestAnimationFrame(generarEnemigos); 
+        }, 1000 / 0.5);
+    }
     
     function scene( )
     {
       
-        if (score%100 == 0 && level <= 4 && score != 0) {
-            escenario.changeScene(miCanvas);
+        if (score%200 == 0 && level <= 4 && score != 0) {
+            escenario.changeScene(miCanvas, score);
             level += 1
         }
 
-        score += 10;
+        console.log(score);
 
         miLevel.value = level;
         miScore.value = score;
@@ -70,13 +87,54 @@ function main()
 
     function moverBala()
     {
+        ctx.clearRect(0, 0, w, 485)
+        for (let j = 0; j < enemies.length; ++j)
+        {
+            enemies[j].moverAbajo();
+            enemies[j].dibujar(ctx);
+
+            if(enemies[j].yCentro+40 >= 483)
+            {
+                enemies.splice(j, 1);
+                j-=1;
+                //console.log(enemies);
+            }
+        }
+
         for (let i = 0; i < balas.length; ++i)
         {
-            balas[i].clear(ctx, w, h);
+            // balas[i].clear(ctx, w, h);
             balas[i].moverArriba();
             balas[i].dibujar(ctx);
+            if (balas[i].yCentro <= 0)
+            {
+                balas.splice(i, 1);
+                i-=1;
+                //console.log(balas);
+            }
+            puntos();
         }
         timerBala();
+    }
+
+    function puntos()
+    {
+        let aux;
+
+        for(let i = 0; i < balas.length; ++i)
+        {
+            for(let j = 0; j < enemies.length; ++j)
+            {
+                aux = balas[i].colisionarCon(enemies[j]);
+
+                if (aux == true)
+                {
+                    score += 50;
+                    balas.splice(i, 1);
+                    enemies.splice(j, 1);
+                }
+            }
+        }
     }
 
     function timerBala()
@@ -103,7 +161,7 @@ function main()
         }
         if (e.code == "Space")
         {
-            balas.push(new Bullet(player.xCentro, player.yCentro));
+            balas.push(new Bullet(player.xCentro, player.yCentro-70));
             console.log("creada");
         }
         player.dibujar(ctx);
