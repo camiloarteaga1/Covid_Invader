@@ -4,7 +4,7 @@ class Player
     #imagen;
     #xCentro;
     #yCentro;
-    #radio
+    #radio;
 
     constructor()
     {
@@ -125,6 +125,11 @@ class Player
     get yCentro()
     {
         return this.#yCentro;
+    }
+
+    lessVida()
+    {
+        this.#numVidas -= 1;
     }
 
     moverIzquierda ()

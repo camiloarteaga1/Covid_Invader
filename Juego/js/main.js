@@ -19,6 +19,7 @@ function  juego()
     let miCanvas = document.getElementById("miCanvas");
     let miScore = document.getElementById("score");
     let miLevel = document.getElementById("level");
+    let miVida = document.getElementById("life");
     let ctx = miCanvas.getContext("2d");
     let body = document.getElementById("body");
     let w = miCanvas.clientWidth;
@@ -41,7 +42,8 @@ function  juego()
     //Data 
     let level = 0;
     let score = 0;
-    
+
+  
 
     //Events
     body.addEventListener("keydown", moverBoton);
@@ -55,11 +57,13 @@ function  juego()
     {
         let random = generarRandom(60, 540);
 
-        if(score < 1400)
+       
+        if(score < 800 && player.vidas >= 1)
         {
             enemies.push(new Enemigo(1, undefined, random, 60));
             enemies[enemies.length-1].dibujar(ctx);
         }
+
 
         setTimeout(function() {
             window.requestAnimationFrame(generarEnemigos); 
@@ -79,6 +83,7 @@ function  juego()
         miLevel.value = level;
         miScore.value = score;
 
+
         setTimeout(function() {
             window.requestAnimationFrame(scene); 
         }, 1000 / 1); 
@@ -92,13 +97,19 @@ function  juego()
         {
             enemies[j].moverAbajo();
             enemies[j].dibujar(ctx);
-
             if(enemies[j].yCentro+40 >= 483)
             {
+                player.lessVida();
                 enemies.splice(j, 1);
                 j-=1;
+                if(player.vidas ==  0)
+                {
+                   enemies = [ ]; 
+                   ctx.clearRect(0, 485, w, 115);
+                }
                 //console.log(enemies);
             }
+            miVida.value = player.vidas;
         }
 
         for (let i = 0; i < balas.length; ++i)
