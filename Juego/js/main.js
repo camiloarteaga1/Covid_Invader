@@ -68,6 +68,11 @@ function  juego()
             enemies[enemies.length-1].dibujar(ctx);
         }
 
+        if (score == 900){
+            document.getElementById("start").src = "imgs/Final_Screen.png";
+            document.getElementById("start").style.display = "block";
+        }
+
 
         setTimeout(function() {
             window.requestAnimationFrame(generarEnemigos); 
