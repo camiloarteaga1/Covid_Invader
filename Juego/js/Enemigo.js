@@ -35,10 +35,6 @@ class Enemigo
         ctx.beginPath();
         ctx.arc(this.#xCentro,this.#yCentro,this.#radio,0, 2.0 * Math.PI);
         ctx.drawImage(this.#imagen,0,0,300,300,this.#xCentro-30, this.#yCentro-30, 60,60);
-        //ctx.fillStyle = this.#colorRelleno;
-       
-        //ctx.strokeStyle = this.#colorContorno;
-        // ctx.stroke();
         ctx.closePath();
     }
 
@@ -77,16 +73,6 @@ class Enemigo
         return this.#type;
     }
 
-    moverIzquierda ()
-    {
-        this.#xCentro += - 5;
-    }
-
-    moverDerecha ()
-    {
-        this.#xCentro += 5;
-    }
-
     moverAbajo ()
     {
         this.#yCentro += 3;
@@ -96,11 +82,5 @@ class Enemigo
     {
         return this.#radio;
     }
-
-    desaparece()
-    {
-        this.#radio = 0;
-    }
-
 
 }

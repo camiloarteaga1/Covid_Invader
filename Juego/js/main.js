@@ -67,7 +67,6 @@ function  juego()
             enemies.push(new Enemigo(tipo, undefined, random, 60));
             enemies[enemies.length-1].dibujar(ctx);
         }
-
         if (score == 900){
             document.getElementById("start").src = "imgs/Final_Screen.png";
             document.getElementById("start").style.display = "block";

@@ -15,26 +15,13 @@ class Bullet
         this.#image.src = 'imgs/Gota.png';
     }
 
-
     dibujar (ctx)
     {
         ctx.beginPath();
-        // ctx.arc(this.#xCentro,this.#yCentro,this.#radio,0, 2.0 * Math.PI);
         ctx.drawImage(this.#image,0,0,50,50,this.#xCentro-20, this.#yCentro-20,40,40);
-        //ctx.fillStyle = this.#colorRelleno;
-        // ctx.fillStyle = "black";
-        // ctx.fill();
-        //ctx.strokeStyle = this.#colorContorno;
-        // ctx.stroke();
         ctx.closePath();
     }
 
-    // clear(ctx, w, h)
-    // {
-    //     ctx.arc(this.#xCentro,this.#yCentro,this.#radio,0, 2.0 * Math.PI);
-    //     // ctx.clip();
-    //     ctx.clearRect(0, 0, w, h);
-    // } 
 
     colisionarCon( enemigo )
     {
